@@ -1,6 +1,5 @@
 package com.example.pokedex.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -12,25 +11,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = RedD,
+    secondary = BlueD,
+    tertiary = GreenD,
+    background = SurfBackGroundD,
+    surface = SurfBackGroundD,
+    onPrimary = OnPrimSecTerD,
+    onSecondary = OnPrimSecTerD,
+    onTertiary = OnPrimSecTerD,
+    onBackground = SurfBackGroundL,
+    onSurface = SurfBackGroundL
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = RedL,
+    secondary = BlueL,
+    tertiary = GreenL,
+    background = SurfBackGroundL,
+    surface = SurfBackGroundL,
+    onPrimary = OnPrimSecTerL,
+    onSecondary = OnPrimSecTerL,
+    onTertiary = OnPrimSecTerL,
+    onBackground = SurfBackGroundD,
+    onSurface = SurfBackGroundD
 )
 
 @Composable
