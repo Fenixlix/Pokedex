@@ -1,5 +1,6 @@
 package com.example.pokedex.home_screen.view.screens
 
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.pokedex.home_screen.view.jet_comp.HomeScreenTopBar
@@ -13,13 +14,19 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
     onPokemonClickOrSearch: (String) -> Unit
 ) {
+    val lazyGridState = rememberLazyGridState()
+
     PkScreenColumn {
         HomeScreenTopBar(onSearchClick = { onPokemonClickOrSearch(it) })
         DataValidation(
             isLoading = viewModel.isLoading.value,
             hasEmptyData = viewModel.pokeList.value.isEmpty()
         ) {
-            PkList(pokemonList = viewModel.pokeList.value) { onPokemonClickOrSearch(it.toString()) }
+            PkList(
+                pokemonList = viewModel.pokeList.value,
+                state = lazyGridState,
+                onClick = { onPokemonClickOrSearch(it.toString()) },
+                needToLoad = {viewModel.getPokeList()})
         }
     }
 }

@@ -13,13 +13,14 @@ import androidx.compose.ui.unit.sp
 fun PkText(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colorScheme.onPrimary
+    color: Color = MaterialTheme.colorScheme.onPrimary,
+    size: Int = 16
 ) {
     Text(
-        text = text,
+        text = text.uppercase(),
         modifier = modifier,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 18.sp,
+        fontSize = size.sp,
         textAlign = TextAlign.Center,
         color = color
     )

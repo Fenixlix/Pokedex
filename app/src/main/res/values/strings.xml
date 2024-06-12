@@ -4,4 +4,13 @@
     <!-- Home screen -->
     <string name="top_bar_placeholder">Search…</string>
     <string name="error_message">"Ups… :( \n\nSomething went wrong"</string>
+
+    <!-- Details screen -->
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="lbs">lbs.</string>
+    <string name="sprites">Sprites</string>
+    <string name="abilities">Abilities</string>
+    <string name="moves">Moves</string>
+    <string name="hidden_ability">Hidden?</string>
 </resources>

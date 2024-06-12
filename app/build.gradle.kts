@@ -74,7 +74,6 @@ dependencies {
     // Retrofit / Poke Api
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
-    implementation(libs.androidx.paging)
     implementation(libs.coil)
 
     testImplementation(libs.junit)

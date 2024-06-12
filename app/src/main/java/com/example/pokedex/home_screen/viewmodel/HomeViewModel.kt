@@ -15,6 +15,10 @@ class HomeViewModel @Inject constructor(
     private val pokeApi: PokeApiService
 ) : ViewModel() {
 
+    private var offset = 0
+    private val limit = 40
+    private var reachedEnd = false
+
     var pokeList = mutableStateOf(listOf<Pokemon>())
         private set
 
@@ -22,23 +26,32 @@ class HomeViewModel @Inject constructor(
         private set
 
     init {
-        getPokeList(offset = 0)
+        getPokeList()
     }
 
-    fun getPokeList(offset: Int, limit: Int = 40) {
-        isLoading.value = true
-        viewModelScope.launch {
-            try {
-                val response = pokeApi.getPkList(offset = offset, limit = limit)
-                val newList = mutableListOf<Pokemon>()
-                response.results.forEachIndexed { index, pk ->
-                    newList.add(Pokemon(name = pk.name, id = index + offset + 1))
+    fun getPokeList() {
+        if (!reachedEnd) {
+            isLoading.value = true
+            viewModelScope.launch {
+                try {
+                    val response = pokeApi.getPkList(offset = offset, limit = limit)
+                    val newList = mutableListOf<Pokemon>()
+                    response.results.forEachIndexed { index, pk ->
+                        newList.add(Pokemon(name = pk.name, id = index + offset + 1))
+                    }
+
+                    offset += newList.size
+                    if (offset >= response.count) {
+                        reachedEnd = true
+                    }
+
+                    pokeList.value += newList
+                    isLoading.value = false
+
+                } catch (e: Exception) {
+                    isLoading.value = false
+                    Log.e("HomeScreen", "fun getPokeList: ${e.message}", e.cause)
                 }
-                pokeList.value = newList
-                isLoading.value = false
-            } catch (e: Exception) {
-                isLoading.value = false
-                Log.e("HomeScreen", "fun getPokeList: ${e.message}", e.cause)
             }
         }
     }

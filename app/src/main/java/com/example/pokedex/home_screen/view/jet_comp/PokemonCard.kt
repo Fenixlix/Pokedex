@@ -35,7 +35,7 @@ fun PokemonCard(pokemon: Pokemon, modifier: Modifier = Modifier, onClick: (Int) 
     ) {
         Row {
             PkText(text = pokemon.name)
-            PkText(text = " # ${pokemon.id}")
+            PkText(text = " #${pokemon.id}")
         }
         PkImage(id = pokemon.id)
     }

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
@@ -35,7 +35,7 @@ fun HomeScreenTopBar(modifier: Modifier = Modifier, onSearchClick: (String) -> U
     var searchWord by remember { mutableStateOf("") }
     val enabler = remember { derivedStateOf { searchWord.isNotEmpty() } }
 
-    Spacer(modifier = Modifier.height(4.dp))
+    Spacer(modifier = Modifier.height(8.dp))
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center,
@@ -54,7 +54,8 @@ fun HomeScreenTopBar(modifier: Modifier = Modifier, onSearchClick: (String) -> U
                 if (enabler.value) onSearchClick(
                     searchWord
                 )
-            })
+            }),
+            shape = CircleShape
         )
         IconButton(enabled = enabler.value, onClick = { onSearchClick(searchWord) }) {
             Icon(imageVector = Icons.Outlined.Search, contentDescription = null)

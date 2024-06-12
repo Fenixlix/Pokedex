@@ -1,4 +1,4 @@
-package com.example.pokedex.ui.jet_comp
+package com.example.pokedex.detail_screen.view.jet_comp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
@@ -11,17 +11,12 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.pokedex.R
 
-// This composable gets the image of the pokemon of the corresponding id
 @Composable
-fun PkImage(id: Int, modifier: Modifier = Modifier, size: Int = 100) {
-    if (id in 0..1118) {
+fun SpriteImage(url: String, modifier: Modifier = Modifier, size: Int = 120) {
+    if (url.isNotEmpty()) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(
-                    "https://raw.githubusercontent.com/" +
-                            "PokeAPI/sprites/master/sprites/" +
-                            "pokemon/other/official-artwork/$id.png"
-                )
+                .data(url)
                 .crossfade(true)
                 .build(),
             contentDescription = null,

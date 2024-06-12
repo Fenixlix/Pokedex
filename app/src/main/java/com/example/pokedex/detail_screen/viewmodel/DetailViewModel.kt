@@ -36,6 +36,7 @@ class DetailViewModel @Inject constructor(
                     types = response.types,
                     moves = response.moves
                 )
+                Log.d("DetailVM", "pokeSearch: ${pokemon.value!!.id}")
                 isLoading.value = false
             } catch (e: Exception) {
                 isLoading.value = false
