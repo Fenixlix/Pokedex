@@ -16,8 +16,19 @@ Complete with: search options (by name or id), dark and light mode
 * Uses **Material Design 3**
 * Custom app Icon and vector images were made using **Inkscape**
 
+## Objective
+Create a great tool that really explores the great potential of the pokeapi, so that every pokemon fan can get with ease the information that they need.
+Practice and learn while having fun, and be surprised by the number of pokemon that there are.
+Explore the potential of kotlin with compose to create applications with excellent scalability.
+
+## How to use?
+1. fork this project to your github account
+1. open it in your pc using android studio
+1. select your device of preference (virtual or physical)
+1. click in the play icon in the top center of android studio to build and instal
+1. have fun!
+
 ## Screenshots
-<br>
 <h3 align="center">Home screen</h3>
 <br>
 <p align="center">
@@ -25,7 +36,6 @@ Complete with: search options (by name or id), dark and light mode
 <img src = "https://github.com/Fenixlix/Pokedex/blob/main/screenshots/home_195_200.png" width = "45%" height = "45%" alt = "Home Screen Dark Mode"> 
 </p>
 
-<br>
 <h3 align="center">Details screen (light mode)</h3>
 <br>
 <p align="center">
@@ -33,7 +43,6 @@ Complete with: search options (by name or id), dark and light mode
 <img src = "https://github.com/Fenixlix/Pokedex/blob/main/screenshots/details_10070_2.png" width = "45%" height = "45%" alt = "Details screen 2"> 
 </p>
 
-<br>
 <h3 align="center">Details screen (dark mode)</h3>
 <br> 
 <p align="center">
