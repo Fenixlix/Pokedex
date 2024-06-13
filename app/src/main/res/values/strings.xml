@@ -9,6 +9,7 @@
     <string name="height">Height</string>
     <string name="weight">Weight</string>
     <string name="lbs">lbs.</string>
+    <string name="ft">Ft.</string>
     <string name="sprites">Sprites</string>
     <string name="abilities">Abilities</string>
     <string name="moves">Moves</string>

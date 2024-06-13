@@ -39,10 +39,9 @@ fun DetailScreen(
             hasEmptyData = currentPokemon == null
         ) {
             if (currentPokemon != null) {
-                CustomRow {
-                    PkText(text = currentPokemon.name, size = 24)
-                    PkText(text = " #${currentPokemon.id}", size = 24)
-                }
+
+                PkText(text = currentPokemon.name, size = 24)
+                PkText(text = " #${currentPokemon.id}", size = 24)
                 PkImage(id = currentPokemon.id, size = 200)
 
                 CustomRow {

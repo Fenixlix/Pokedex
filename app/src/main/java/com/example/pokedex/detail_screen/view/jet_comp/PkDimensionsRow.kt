@@ -18,7 +18,8 @@ fun PkDimensionsRow(height: String, weight: String, modifier: Modifier = Modifie
             onValueChange = {},
             modifier = Modifier.width(120.dp),
             readOnly = true,
-            label = { Text(text = stringResource(id = R.string.height)) }
+            label = { Text(text = stringResource(id = R.string.height)) },
+            suffix = { Text(text = stringResource(id = R.string.ft)) }
         )
         Spacer(modifier = Modifier.width(40.dp))
         OutlinedTextField(

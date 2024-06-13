@@ -40,13 +40,10 @@ fun NextPrevButtons(
         CustomIconBtn(
             text = "#${currentId - 1}",
             icon = Icons.Filled.ArrowBack,
-            enabler = (currentId - 1) > 0,
             onClick = { onNextOrPrevClick(currentId - 1) })
-        // todo: in future it can be upgrade using store shared preferences and the api response
         CustomIconBtn(
             text = "#${currentId + 1}",
             icon = Icons.Filled.ArrowForward,
-            enabler = (currentId + 1) < 1118,
             onClick = { onNextOrPrevClick(currentId + 1) }
         )
     }
@@ -56,7 +53,6 @@ fun NextPrevButtons(
 private fun CustomIconBtn(
     text: String,
     icon: ImageVector,
-    enabler: Boolean,
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
@@ -69,7 +65,6 @@ private fun CustomIconBtn(
                     color = MaterialTheme.colorScheme.secondary,
                     shape = CircleShape
                 ),
-            enabled = enabler,
             onClick = { onClick() }
         ) {
             Icon(

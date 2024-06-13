@@ -4,9 +4,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -22,7 +22,8 @@ fun PokemonCard(pokemon: Pokemon, modifier: Modifier = Modifier, onClick: (Int) 
     Column(
         modifier = modifier
             .padding(4.dp)
-            .size(120.dp)
+            .width(130.dp)
+            .wrapContentHeight()
             .border(
                 width = 2.dp,
                 color = MaterialTheme.colorScheme.tertiary,
@@ -33,10 +34,8 @@ fun PokemonCard(pokemon: Pokemon, modifier: Modifier = Modifier, onClick: (Int) 
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Row {
-            PkText(text = pokemon.name)
-            PkText(text = " #${pokemon.id}")
-        }
+        PkText(text = pokemon.name)
+        PkText(text = "#${pokemon.id}")
         PkImage(id = pokemon.id)
     }
 }
