@@ -18,8 +18,8 @@ Complete with: search options (by name or id), dark and light mode
 
 ## Objective
 Create a great tool that really explores the great potential of the pokeapi, so that every pokemon fan can get with ease the information that they need.
-Practice and learn while having fun, and be surprised by the number of pokemon that there are.
-Explore the potential of kotlin with compose to create applications with excellent scalability.
+<br>Practice and learn while having fun, and be surprised by the number of pokemon that there are.
+<br>Explore the potential of kotlin with compose to create applications with excellent scalability.
 
 ## How to use?
 1. fork this project to your github account
