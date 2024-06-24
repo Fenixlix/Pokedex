@@ -14,4 +14,7 @@
     <string name="abilities">Abilities</string>
     <string name="moves">Moves</string>
     <string name="hidden_ability">Hidden?</string>
+    <string name="default_sprites">Default</string>
+    <string name="shiny_sprites">Shiny</string>
+    <string name="empty_pokemon_name">Pokemon not found.</string>
 </resources>

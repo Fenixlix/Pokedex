@@ -10,8 +10,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.BottomAppBarDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -22,9 +25,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.pokedex.detail_screen.model.PokemonDetails
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DetailsBottomBar(
+    currentPokemon: PokemonDetails?,
+    modifier: Modifier = Modifier,
+    onClick: (Int) -> Unit
+) {
+    if (currentPokemon != null) {
+        BottomAppBar(
+            modifier = modifier,
+            scrollBehavior = BottomAppBarDefaults.exitAlwaysScrollBehavior()
+        ) {
+            NextPrevButtons(currentId = currentPokemon.id) {
+                onClick(it)
+            }
+        }
+    }
+}
 
 @Composable
-fun NextPrevButtons(
+private fun NextPrevButtons(
     currentId: Int,
     modifier: Modifier = Modifier,
     onNextOrPrevClick: (Int) -> Unit
@@ -39,11 +62,11 @@ fun NextPrevButtons(
     ) {
         CustomIconBtn(
             text = "#${currentId - 1}",
-            icon = Icons.Filled.ArrowBack,
+            icon = Icons.AutoMirrored.Filled.ArrowBack,
             onClick = { onNextOrPrevClick(currentId - 1) })
         CustomIconBtn(
             text = "#${currentId + 1}",
-            icon = Icons.Filled.ArrowForward,
+            icon = Icons.AutoMirrored.Filled.ArrowForward,
             onClick = { onNextOrPrevClick(currentId + 1) }
         )
     }
