@@ -43,14 +43,15 @@ fun DetailScreen(
                 currentPokemon = currentPokemon,
                 onClick = { onNextOrPrevClick(it) })
         }) { paddingValues ->
-        PkScreenColumn(
-            modifier = Modifier
-                .padding(paddingValues)
-                .verticalScroll(state = scrollState)
+
+        DataValidation(
+            isLoading = viewModel.isLoading.value,
+            hasEmptyData = currentPokemon == null
         ) {
-            DataValidation(
-                isLoading = viewModel.isLoading.value,
-                hasEmptyData = currentPokemon == null
+            PkScreenColumn(
+                modifier = Modifier
+                    .padding(paddingValues)
+                    .verticalScroll(state = scrollState)
             ) {
                 if (currentPokemon != null) {
                     PkImage(id = currentPokemon.id, size = 200)

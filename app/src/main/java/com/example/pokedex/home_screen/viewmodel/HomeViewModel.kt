@@ -36,13 +36,8 @@ class HomeViewModel @Inject constructor(
                 try {
                     val response = pokeApi.getPkList(offset = offset, limit = limit)
                     val newList = mutableListOf<Pokemon>()
-                    response.results.forEachIndexed { index, pk ->
-                        val id = if (pk.url.endsWith("/")) {
-                            pk.url.dropLast(1).takeLastWhile { it.isDigit() }.toInt()
-                        } else {
-                            pk.url.takeLastWhile { it.isDigit() }.toInt()
-                        }
-                        newList.add(Pokemon(name = pk.name, id = id))
+                    response.results.forEach { pk ->
+                        newList.add(Pokemon(name = pk.name, id = getPkId(pk.url)))
                     }
 
                     offset += newList.size
@@ -60,4 +55,10 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
+}
+
+private fun getPkId(url: String) = if (url.endsWith("/")) {
+    url.dropLast(1).takeLastWhile { it.isDigit() }.toInt()
+} else {
+    url.takeLastWhile { it.isDigit() }.toInt()
 }

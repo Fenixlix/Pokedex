@@ -26,7 +26,7 @@ fun HomeScreen(
                 pokemonList = viewModel.pokeList.value,
                 state = lazyGridState,
                 onClick = { onPokemonClickOrSearch(it.toString()) },
-                needToLoad = {viewModel.getPokeList()})
+                needToLoad = { viewModel.getPokeList() })
         }
     }
 }
